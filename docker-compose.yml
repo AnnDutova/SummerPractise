@@ -10,7 +10,9 @@ services:
        
   client:
     build: client/
-    command: python3 ./read.py  
+    command: python3 ./read.py
+    volumes:
+      - /home/anna/docker-compose/client/:/client/  
     network_mode: host
     depends_on:
       - server  

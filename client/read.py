@@ -8,10 +8,13 @@ writer = manager.create_writer("death", "note")
 writer.write_event("data", "key")
 writer.write_event("SCI")
 
+
+write_file = open("info.txt", "w+")
+
 async def create_task(reader):
     sl = await reader.get_segment_slice_async()
     for event in sl:
-        print(event.data())
+        write_file.write(event.data().decode('utf-8'))
 
 manager = pravega_client.StreamManager("127.0.0.1:9090")
 reader_group = manager.create_reader_group("rg1", "death", "note")

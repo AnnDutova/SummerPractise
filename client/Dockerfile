@@ -1,4 +1,4 @@
 FROM python:3.8
-RUN pip3 install pravega
+RUN pip3 install pravega 
 COPY read.py /client/
 WORKDIR /client/
